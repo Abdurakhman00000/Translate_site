@@ -1,15 +1,12 @@
 "use client";
 import { useEffect, useRef } from "react";
 import scss from "./ProfileMenu.module.scss";
-import { FC } from "react";
 import { useHeaderStore } from "@/stores/useHeaderStore";
 import { useRouter } from "next/navigation";
 
-interface ProfileMenuProps {
-  logout: () => void;
-}
 
-const ProfileMenu: FC<ProfileMenuProps> = () => {
+
+const ProfileMenu = () => {
   const { isOpenProfileMenu, setIsOpenProfileMenu } = useHeaderStore();
   const menuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
