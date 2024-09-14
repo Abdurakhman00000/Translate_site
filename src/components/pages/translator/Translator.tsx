@@ -77,7 +77,7 @@ const Translator = () => {
     recognition.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
       setInputText(transcript);
-      handleTranslate(transcript); // Переводим сразу после распознавания
+      handleTranslate(transcript); 
     };
 
     recognition.start();
