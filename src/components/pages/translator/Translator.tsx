@@ -1,17 +1,19 @@
 "use client";
 
 import { useTranslateTextMutation } from "@/redux/api/translate";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import scss from "./Translator.module.scss";
 import MicIcon from '@mui/icons-material/Mic';
 
-const debounce = (func: (...args: any[]) => void, delay: number) => {
+const debounce = (func: (text: string) => void, delay: number) => {
   let timeoutId: NodeJS.Timeout;
-  return (...args: any[]) => {
+  return (text: string) => {
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
+    timeoutId = setTimeout(() => func(text), delay);
   };
 };
+
+
 
 const Translator = () => {
   const [inputText, setInputText] = useState("");
